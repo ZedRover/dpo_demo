@@ -8,7 +8,9 @@ echo "Reproducing Figure 3: Method Comparison"
 echo "=========================================="
 
 # Configuration
-BASE_MODEL="EleutherAI/pythia-410m"
+# Note: Using gpt2 to match the DPO model trained in local_test.sh
+# If you want to use pythia-410m, retrain DPO with: --model_name EleutherAI/pythia-410m
+BASE_MODEL="gpt2"
 DPO_MODEL="./outputs/local_test/final_model"
 PREFERRED_FT_MODEL="./outputs/preferred_ft"
 NUM_SAMPLES=50
