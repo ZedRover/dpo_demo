@@ -1,0 +1,32 @@
+{
+  "0.0": {
+    "win_rate": 0.51,
+    "mean_chosen_reward": -0.00019576072692871095,
+    "mean_rejected_reward": -0.00020603084564208989,
+    "mean_reward_margin": 1.0270118713378939e-05
+  },
+  "0.25": {
+    "win_rate": 0.51,
+    "mean_chosen_reward": -0.00019576072692871095,
+    "mean_rejected_reward": -0.00020603084564208989,
+    "mean_reward_margin": 1.0270118713378939e-05
+  },
+  "0.5": {
+    "win_rate": 0.51,
+    "mean_chosen_reward": -0.00019576072692871095,
+    "mean_rejected_reward": -0.00020603084564208989,
+    "mean_reward_margin": 1.0270118713378939e-05
+  },
+  "0.75": {
+    "win_rate": 0.51,
+    "mean_chosen_reward": -0.00019576072692871095,
+    "mean_rejected_reward": -0.00020603084564208989,
+    "mean_reward_margin": 1.0270118713378939e-05
+  },
+  "1.0": {
+    "win_rate": 0.51,
+    "mean_chosen_reward": -0.00019576072692871095,
+    "mean_rejected_reward": -0.00020603084564208989,
+    "mean_reward_margin": 1.0270118713378939e-05
+  }
+}
