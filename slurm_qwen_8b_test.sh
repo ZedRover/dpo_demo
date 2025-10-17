@@ -55,6 +55,7 @@ python main.py \
     --max_steps 50 \
     --eval_steps 25 \
     --save_steps 50 \
+    --warmup_steps 10 \
     --output_dir "$OUTPUT_DIR" \
     --sanity_check \
     --num_workers 4
