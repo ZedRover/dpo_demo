@@ -10,7 +10,7 @@
 #SBATCH --mem=64G                       # 64GB RAM for 8B model
 #SBATCH --partition=gpu
 
-# Qwen2.5-8B specific configuration
+# Qwen3-8B specific configuration
 # Requires:
 # - GPU with >=24GB VRAM (A100-40GB/80GB, V100-32GB, or A6000)
 # - 64GB+ system RAM
@@ -18,7 +18,7 @@
 
 # Print job information
 echo "=========================================="
-echo "DPO Training with Qwen2.5-8B"
+echo "DPO Training with Qwen3-8B"
 echo "=========================================="
 echo "SLURM Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURMD_NODENAME"
@@ -45,8 +45,8 @@ echo "GPU Information:"
 nvidia-smi
 echo "=========================================="
 
-# Model configuration for Qwen2.5-8B
-MODEL_NAME="Qwen/Qwen2.5-8B"
+# Model configuration for Qwen3-8B
+MODEL_NAME="Qwen/Qwen3-8B"
 
 # Training hyperparameters optimized for 8B model
 BETA=0.1                    # DPO beta parameter

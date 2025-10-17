@@ -4,22 +4,27 @@
 #SBATCH --error=logs/dpo_qwen_test_%j.err
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --gres=gpu:1
-#SBATCH --time=02:00:00                 # 2 hours for quick test
+#SBATCH --cpus-per-task=10
+#SBATCH --gpus=h100:1
+#SBATCH --time=01:00:00                 # 2 hours for quick test
 #SBATCH --mem=64G
-#SBATCH --partition=gpu
 
-# Quick test script for Qwen2.5-8B
+# Quick test script for Qwen3-8B
 # Tests model loading and runs 50 training steps
+export HF_HUB_OFFLINE=1
 
 echo "=========================================="
-echo "Quick Test: DPO with Qwen2.5-8B"
+echo "Quick Test: DPO with Qwen3-8B"
 echo "=========================================="
 echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURMD_NODENAME"
 echo "Start: $(date)"
 echo "=========================================="
+
+module load cuda/12.2
+module load python/3.12.4
+
+source .venv/bin/activate
 
 mkdir -p logs
 
@@ -31,7 +36,7 @@ export TOKENIZERS_PARALLELISM=false
 nvidia-smi
 
 # Quick test configuration
-MODEL_NAME="Qwen/Qwen2.5-8B"
+MODEL_NAME="Qwen/Qwen3-8B"
 OUTPUT_DIR="./outputs/qwen_test_${SLURM_JOB_ID}"
 
 echo ""
@@ -42,7 +47,7 @@ echo "Output: $OUTPUT_DIR"
 echo "=========================================="
 
 # Run quick test
-uv run python main.py \
+python main.py \
     --model_name "$MODEL_NAME" \
     --beta 0.1 \
     --learning_rate 5e-7 \

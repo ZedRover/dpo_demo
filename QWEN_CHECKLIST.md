@@ -1,4 +1,4 @@
-# Qwen2.5-8B 训练前检查清单
+# Qwen3-8B 训练前检查清单
 
 在提交 SLURM 任务前,请确认以下事项:
 
@@ -24,7 +24,7 @@
 
 - [ ] 确认可以访问 Hugging Face
   ```bash
-  python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('Qwen/Qwen2.5-8B')"
+  python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('Qwen/Qwen3-8B')"
   ```
 - [ ] 如在中国,设置镜像:
   ```bash
@@ -142,7 +142,7 @@ sprio -j <JOB_ID>
 srun --gres=gpu:1 --pty bash
 python -c "
 from transformers import AutoModelForCausalLM, AutoTokenizer
-AutoModelForCausalLM.from_pretrained('Qwen/Qwen2.5-8B')
+AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-8B')
 "
 ```
 

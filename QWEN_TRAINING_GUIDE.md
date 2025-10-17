@@ -1,6 +1,6 @@
-# Qwen2.5-8B DPO Training Guide
+# Qwen3-8B DPO Training Guide
 
-使用 Qwen2.5-8B 在 SLURM 集群上训练 DPO 模型的完整指南。
+使用 Qwen3-8B 在 SLURM 集群上训练 DPO 模型的完整指南。
 
 ## 系统要求
 
@@ -62,7 +62,7 @@ sbatch slurm_qwen_8b.sh
 
 ## 配置说明
 
-### Qwen2.5-8B 模型信息
+### Qwen3-8B 模型信息
 
 - **参数量**: 8B (8 billion)
 - **架构**: Transformer decoder
@@ -75,7 +75,7 @@ sbatch slurm_qwen_8b.sh
 在 `slurm_qwen_8b.sh` 中配置:
 
 ```bash
-MODEL_NAME="Qwen/Qwen2.5-8B"
+MODEL_NAME="Qwen/Qwen3-8B"
 BETA=0.1                    # DPO 温度参数
 LEARNING_RATE=5e-7          # 学习率 (8B模型用较小的LR)
 BATCH_SIZE=4                # 批次大小 (根据GPU调整)
@@ -195,8 +195,8 @@ MAX_LENGTH=256
 # 预先下载模型
 python -c "
 from transformers import AutoModelForCausalLM, AutoTokenizer
-model = AutoModelForCausalLM.from_pretrained('Qwen/Qwen2.5-8B')
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen2.5-8B')
+model = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-8B')
+tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3-8B')
 "
 
 # 或使用 HF 镜像 (中国用户)
@@ -300,7 +300,7 @@ sbatch slurm_qwen_baseline.sh  # (需要创建)
 # 运行对比
 uv run python evaluate_comparison.py \
     --dpo_path outputs/qwen2.5_8b_*/final_model \
-    --base_model Qwen/Qwen2.5-8B
+    --base_model Qwen/Qwen3-8B
 ```
 
 ## 最佳实践
