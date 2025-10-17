@@ -51,7 +51,7 @@ python main.py \
     --model_name "$MODEL_NAME" \
     --beta 0.1 \
     --learning_rate 5e-7 \
-    --batch_size 2 \
+    --batch_size 1 \
     --max_steps 50 \
     --eval_steps 25 \
     --save_steps 50 \
